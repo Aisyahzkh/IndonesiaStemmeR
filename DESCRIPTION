@@ -1,0 +1,11 @@
+Package: stemmerIndonesia
+Type: Package
+Title: Stem a Word in Bahasa Indonesia to Its Root Word
+Version: 0.1.0
+Author: Aisyah Zakiah
+Maintainer: Aisyah Zakiah <aisyahzkh14@gmail.com> 
+Description: This package provides function to stem a word in Bahasa Indonesia
+	using Nazief & Andriani Algoritm. This package is made based on katadasaR package.
+License: MIT
+Encoding: UTF-8
+LazyData: true

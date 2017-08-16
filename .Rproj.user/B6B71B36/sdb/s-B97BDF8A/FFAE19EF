@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "#' @export stemKalimat\n#'\n#' @title\n#' Word stemmer for Bahasa Indonesia\n#'\n#' @description\n#' Provides function to stem (retrieve root word of a word) a word in\n#' Bahasa Indonesia using Nazief and Andriani's algorithm.\n#' It consists set of functions to remove prefixes, suffixes or both.\n#' This package is made based on katadasaR package\n#'\n#' @author Aisyah Zakiah\n#'\n#' @param kalimat\n#'\n#' @examples stemKalimat(\"percobaan\")\n#'\n\nstemKalimat <- function(kalimat) {\n  kalimat <- as.character(kalimat)\n  kalimat_split = strsplit(kalimat, split = \" \")\n  kalimat <- \"\"\n\n  for(i in kalimat_split[[1]]){\n    kata <- i\n    kata0 <- kata\n    katadasar <- FALSE;\n    if (is_katadasar(kata)) {\n      kalimat <- c(kalimat,kata)\n    } else {\n      kata <- HapusAkhiran(kata)\n      if (!is.null(kata)) {\n        if ( is_katadasar(kata) ) {\n          kalimat <- c(kalimat,kata)\n          katadasar<-TRUE\n        }\n      }\n      if(!katadasar){\n        kata <- HapusAkhiranIAnKan(kata)\n        if ( !is.null(kata) ) {\n          if ( is_katadasar(kata) ) {\n            kalimat <- c(kalimat,kata)\n            katadasar<-TRUE\n          }\n        }\n\n        if(!katadasar){\n          kata <- HapusAwalan(kata)\n          if ( !is.null(kata) ) {\n            if ( is_katadasar(kata) ) {\n              kalimat <- c(kalimat,kata)\n              katadasar<-TRUE\n            }\n          }\n          if(!katadasar){\n            {kalimat <- c(kalimat,kata0)}\n          }\n        }\n      }\n    }\n  }\n  return(paste(kalimat, collapse=\" \"))\n}\n",
+    "created" : 1502876161236.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3473864393",
+    "id" : "FFAE19EF",
+    "lastKnownWriteTime" : 1502876449,
+    "last_content_update" : 1502876449,
+    "path" : "~/IndonesiaStemmeR/R/IndonesiaStemmeR.R",
+    "project_path" : "R/IndonesiaStemmeR.R",
+    "properties" : {
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
