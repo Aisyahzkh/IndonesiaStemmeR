@@ -9,3 +9,4 @@ Description: This package provides function to stem a word in Bahasa Indonesia
 License: MIT
 Encoding: UTF-8
 LazyData: true
+RoxygenNote: 6.0.1
