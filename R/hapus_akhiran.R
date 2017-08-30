@@ -1,20 +1,20 @@
 HapusAkhiran <- function(kata) {
-  if ( grepl("[A-Za-z]+([klt]ah|pun|ku|mu|nya)$", kata) ) {
+  if ( grepl("[A-Za-z]+([kl]ah|pun|ku|mu|nya)$", kata) ) {
     kata1 <- sub("([klt]ah|pun|ku|mu|nya)$","",kata)
-    if ( grepl("[A-Za-z]+([klt]ah|pun)$", kata) ) {
+    if ( grepl("[A-Za-z]+([kl]ah|pun)$", kata) ) {
       kata1 <- HapusAkhiranKepunyaan(kata1)
     }
   } else {
     kata1 <- kata
   }
-  return(kata1)
+  kata1
 }
 
 HapusAkhiranKepunyaan <- function(kata) {
   if ( grepl("[A-Za-z]+(nya|[km]u)$", kata) ) {
     kata = sub("(nya|[km]u)$","",kata)
   }
-  return(kata)
+  kata
 }
 
 HapusAkhiranIAnKan <- function(kata) {

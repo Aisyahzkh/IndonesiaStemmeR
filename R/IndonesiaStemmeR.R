@@ -23,7 +23,7 @@ stemKalimat <- function(kalimat) {
 
   for(i in kalimat_split[[1]]){
     kata <- i
-    kata0 <- kata
+    kata1 <- kata
     katadasar <- FALSE;
     if (is_katadasar(kata)) {
       kalimat <- c(kalimat,kata)
@@ -36,24 +36,36 @@ stemKalimat <- function(kalimat) {
         }
       }
       if(!katadasar){
-        kata <- HapusAkhiranIAnKan(kata)
+        kata0 <- HapusAkhiranIAnKan(kata)
         if ( !is.null(kata) ) {
           if ( is_katadasar(kata) ) {
             kalimat <- c(kalimat,kata)
             katadasar<-TRUE
+          } else {
+
           }
         }
-
         if(!katadasar){
-          kata <- HapusAwalan(kata)
-          if ( !is.null(kata) ) {
-            if ( is_katadasar(kata) ) {
-              kalimat <- c(kalimat,kata)
+          kata0 <- HapusAwalan(kata)
+          if ( !is.null(kata0) ) {
+            if ( is_katadasar(kata0) ) {
+              kalimat <- c(kalimat,kata0)
               katadasar<-TRUE
             }
           }
+
           if(!katadasar){
-            {kalimat <- c(kalimat,kata0)}
+            kata0 <- HapusSisipan(kata)
+            if ( !is.null(kata0) ) {
+              if ( is_katadasar(kata0) ) {
+                kalimat <- c(kalimat,kata0)
+                katadasar<-TRUE
+              }
+            }
+
+            if( !katadasar ){
+              {kalimat <- c(kalimat,kata1)}
+            }
           }
         }
       }

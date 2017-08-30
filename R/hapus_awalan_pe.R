@@ -32,7 +32,7 @@ HapusAwalanPe <- function(kata) {
       }
     }
 
-        if ( grepl("^per[^aiueor][A-Za-z](?!er)", kata, perl=T) ) {
+    if ( grepl("^per[^aiueor][A-Za-z](?!er)", kata, perl=T) ) {
           kata1 <- sub("^per", "", kata)
       if ( is_katadasar(kata1) ) {
         return(kata1)
@@ -94,7 +94,6 @@ HapusAwalanPe <- function(kata) {
     }
 
     if ( grepl("^pen[cdjzt]", kata) ) {
-
       kata1 <- sub("^pen", "", kata)
       if ( is_katadasar(kata1) ) {
         return(kata1)
@@ -107,7 +106,6 @@ HapusAwalanPe <- function(kata) {
     }
 
     if ( grepl("^pen[aiueo]", kata) ) {
-
       kata1 <- sub("^pen", "n", kata)
       if ( is_katadasar(kata1) ) {
         return(kata1)
@@ -203,12 +201,12 @@ HapusAwalanPe <- function(kata) {
       if ( is_katadasar(kata1) ) {
         return(kata1)
       }
-      
+
       kata2 <- HapusAkhiranIAnKan(kata1)
       if ( is_katadasar(kata2) ) {
         return(kata2)
       }
-      
+
       kata1 <- sub("^pel", "", kata)
       if ( is_katadasar(kata1) ) {
         return(kata1)
